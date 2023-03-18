@@ -1,0 +1,13 @@
+.profile__info {
+    display: flex;
+    flex-direction: column;
+    /* text-overflow: ellipsis;
+      white-space: nowrap; */
+    overflow: hidden;
+  }
+  
+  @media (max-width: 700px) {
+    .profile__info {
+      align-items: center;
+    }
+  }

@@ -1,0 +1,21 @@
+.places__heart {
+    background-image: url(../../../images/Heart.svg);
+    width: 22px;
+    height: 19px;
+    background-color: transparent;
+    padding: 0;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .places__heart:hover {
+    /* color: #FFFFFF; */
+    opacity: 0.5;
+    transition: opacity 0.3s;
+  }
+  
+  .places__heart:active {
+    background-image: url(../../../images/Heart_Black.svg);
+    opacity: 1;
+    transition: opacity 0.3s;
+  }
