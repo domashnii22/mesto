@@ -2,8 +2,8 @@ const editProfileButton = document.querySelector('.profile__edit'); // кноп�
 const closePopupButton = document.querySelector('.popup__close-button'); // кнопка закрытия
 const editPopup = document.querySelector('.popup'); // переменная попапа
 const formElement = document.querySelector('.popup__form'); // переменная формы
-const nameInput = document.querySelector('.popup__input_name'); // переменная инпута имени профиля
-const jobInput = document.querySelector('.popup__input_occupation'); // переменная инпута должности профиля
+const nameInput = document.querySelector('.popup__input_text_name'); // переменная инпута имени профиля
+const jobInput = document.querySelector('.popup__input_text_occupation'); // переменная инпута должности профиля
 const profileName = document.querySelector('.profile__name'); // переменная имени профиля
 const profileOccupation = document.querySelector('.profile__occupation'); // переменная должности профиля
 
