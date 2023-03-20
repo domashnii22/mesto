@@ -1,13 +1,13 @@
 .profile__info {
     display: flex;
     flex-direction: column;
-    /* text-overflow: ellipsis;
-      white-space: nowrap; */
-    overflow: hidden;
+    gap: 10px;
   }
   
   @media (max-width: 700px) {
     .profile__info {
       align-items: center;
+      margin-top: 26px;
+      gap: 6px;
     }
   }
