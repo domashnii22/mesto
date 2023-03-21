@@ -1,14 +1,14 @@
 .profile__edit {
-    background-image: url(../../../images/Edit_Button.svg);
+    background-image: url(../../../images/Edit.svg);
     width: 24px;
     height: 24px;
     cursor: pointer;
     background-color: transparent;
     padding: 0;
-    border: 1px solid#ffff;
+    border: 1px solid #ffff;
     margin-top: 16px;
     background-repeat: no-repeat;
-    background-size: 24px 24px;
+    background-size: 10px 10px;
     background-position: center;
     transition: opacity 0.3s;
   }
@@ -22,7 +22,7 @@
     .profile__edit {
       width: 18px;
       height: 18px;
-      background-size: 18px 18px;
+      background-size: 7.5px 7.5px;
       margin-top: 9px;
     }
   }
