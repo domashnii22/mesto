@@ -9,7 +9,7 @@
     justify-content: center;
     align-items: center;
     box-sizing: border-box;
-    position: absolute; 
+    position: absolute;
     visibility: hidden;
     opacity: 0;
     transition: opacity 0.6s, visibility 0.6s, transform 0.6s;
