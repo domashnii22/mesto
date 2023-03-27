@@ -1,81 +1,50 @@
 const editProfileButton = document.querySelector(".profile__edit"); // кнопка открытия №1
 const addPlaceButton = document.querySelector(".profile__add"); // кнопка открытия №2
-const closeEditPopupButton = document.querySelector(
-  ".popup__close-button_type_edit"
-); // кнопка закрытия #1
-const closeAddPopupButton = document.querySelector(
-  ".popup__close-button_type_add"
-); // кнопка закрытия #2
 const editPopup = document.querySelector(".popup_type_edit"); // переменная попапа №1
 const addPopup = document.querySelector(".popup_type_add"); // переменная попапа №2
-const formElementEdit = document.querySelector(".popup__form_type_edit"); // переменная формы #1
-const formElementAdd = document.querySelector(".popup__form_type_add"); // переменная формы #2
+const imagePopup = document.querySelector(".popup_type_image"); // переменная попапа №3
+const closeEditPopupButton = editPopup.querySelector(
+  ".popup__close-button"
+); // кнопка закрытия #1
+const closeAddPopupButton = addPopup.querySelector(
+  ".popup__close-button"
+); // кнопка закрытия #2
+const closePopupImageButton = imagePopup.querySelector(
+  ".popup__close-button"
+); // кнопка закрытия #3 
+const formElementEdit = editPopup.querySelector(".popup__form"); // переменная формы #1
+const formElementAdd = addPopup.querySelector(".popup__form"); // переменная формы #2
 const nameInput = document.querySelector(".popup__input_text_name"); // переменная инпута имени профиля
 const jobInput = document.querySelector(".popup__input_text_occupation"); // переменная инпута должности профиля
 const profileName = document.querySelector(".profile__name"); // переменная имени профиля
 const profileOccupation = document.querySelector(".profile__occupation"); // переменная должности профиля
 const placeTitle = document.querySelector(".place__caption"); // переменная названия места
 const placeImage = document.querySelector(".place__image"); // переменная картинки места
-const imagePopup = document.querySelector(".popup_type_image");
-const closePopupImageButton = document.querySelector(
-  ".popup__close-button_type_image"
-); // кнопка закрытия #3 
 const popupImageCaption = document.querySelector(".popup__caption"); // переменная описания картинки в попапе
 const popupImagePicture = document.querySelector(".popup__image"); // переменная картинки в попапе
 const list = document.querySelector(".places__items"); // переменная списка
-const initialCards = [
-  {
-    name: "Архыз",
-    link: "https://pictures.s3.yandex.net/frontend-developer/cards-compressed/arkhyz.jpg",
-  },
-  {
-    name: "Челябинская область",
-    link: "https://pictures.s3.yandex.net/frontend-developer/cards-compressed/chelyabinsk-oblast.jpg",
-  },
-  {
-    name: "Иваново",
-    link: "https://pictures.s3.yandex.net/frontend-developer/cards-compressed/ivanovo.jpg",
-  },
-  {
-    name: "Камчатка",
-    link: "https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kamchatka.jpg",
-  },
-  {
-    name: "Холмогорский район",
-    link: "https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kholmogorsky-rayon.jpg",
-  },
-  {
-    name: "Байкал",
-    link: "https://pictures.s3.yandex.net/frontend-developer/cards-compressed/baikal.jpg",
-  },
-]; // переменная массива
 
-function openPopupEdit() {
-  nameInput.value = profileName.textContent;
-  jobInput.value = profileOccupation.textContent;
-  editPopup.classList.add("popup_opened");
+function openPopup(popup) {
+  popup.classList.add("popup_opened");
 }
 
-function closePopupEdit() {
-  editPopup.classList.remove("popup_opened");
+function closePopup(popup) {
+  popup.classList.remove("popup_opened");
 }
 
 function handleFormSubmitEdit(evt) {
   evt.preventDefault();
   profileName.textContent = nameInput.value;
   profileOccupation.textContent = jobInput.value;
-  closePopupEdit();
+  closePopup(editPopup);
 }
 
-function openPopupAdd() {
-  addPopup.classList.add("popup_opened");
+function addCard(card) {
+  const anotherCard = createCard(card);
+  list.prepend(anotherCard);
 }
 
-function closePopupAdd() {
-  addPopup.classList.remove("popup_opened");
-}
-
-function createCard(card) {
+const createCard = (card) => {
   const newCard = document
     .querySelector(".place-template")
     .content.cloneNode(true);
@@ -92,15 +61,15 @@ function createCard(card) {
       evt.target.classList.toggle("places__heart_active");
     });
   cardImage.addEventListener("click", (evt) => {
-    openPopupImage(imagePopup);
+    openPopup(imagePopup);
     popupImageCaption.textContent = card.name;
     popupImagePicture.src = card.link;
     popupImagePicture.alt = card.name;
   });
-  list.prepend(newCard);
+  return newCard;
 }
 
-initialCards.forEach(createCard);
+initialCards.forEach(addCard);
 
 function handleDeleteButton(evt) {
   const buttonDelete = evt.target;
@@ -114,22 +83,27 @@ function handleFormSubmitAdd(evt) {
   const name = formElement.querySelector(".popup__input_text_title").value;
   const link = formElement.querySelector(".popup__input_text_link").value;
   const card = { name, link };
-  createCard(card);
+  addCard(card);
+  closePopup(addPopup);
+  formElement.reset();
 }
 
-function openPopupImage() {
-  imagePopup.classList.add("popup_opened");
-}
-
-function closePopupImage() {
-  imagePopup.classList.remove("popup_opened");
-}
-
-editProfileButton.addEventListener("click", openPopupEdit);
-addPlaceButton.addEventListener("click", openPopupAdd);
-closeEditPopupButton.addEventListener("click", closePopupEdit);
-closeAddPopupButton.addEventListener("click", closePopupAdd);
+editProfileButton.addEventListener("click", function () {
+ nameInput.value = profileName.textContent;
+ jobInput.value = profileOccupation.textContent;
+ openPopup(editPopup);
+});
+addPlaceButton.addEventListener("click", function () {
+  openPopup(addPopup)
+});
+closeEditPopupButton.addEventListener("click", function () {
+  closePopup(editPopup)
+});
+closeAddPopupButton.addEventListener("click", function () {
+  closePopup(addPopup)
+});
 formElementEdit.addEventListener("submit", handleFormSubmitEdit);
 formElementAdd.addEventListener("submit", handleFormSubmitAdd);
-formElementAdd.addEventListener("submit", closePopupAdd);
-closePopupImageButton.addEventListener("click", closePopupImage);
+closePopupImageButton.addEventListener("click", function () {
+  closePopup(imagePopup)
+});

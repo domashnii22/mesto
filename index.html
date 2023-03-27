@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="./pages/index.css" />
     <title>Сервис Mesto</title>
+    <script src="./scripts/cards.js" defer></script>
     <script src="./scripts/index.js" defer></script>
   </head>
   <body>
@@ -55,10 +56,10 @@
         <button
           aria-label="Кнопка закрытия попапа"
           type="button"
-          class="popup__close-button popup__close-button_type_edit"
+          class="popup__close-button"
         ></button>
         <h2 class="popup__title">Редактировать профиль</h2>
-        <form name="popupForm" class="popup__form popup__form_type_edit">
+        <form name="popupForm" class="popup__form">
           <input
             name="inputName"
             placeholder="Имя"
@@ -85,10 +86,10 @@
         <button
           aria-label="Кнопка закрытия попапа"
           type="button"
-          class="popup__close-button popup__close-button_type_add"
+          class="popup__close-button"
         ></button>
         <h2 class="popup__title">Новое место</h2>
-        <form name="popupForm" class="popup__form popup__form_type_add">
+        <form name="popupForm" class="popup__form">
           <input
             name="inputTitle"
             placeholder="Название"
@@ -115,7 +116,7 @@
         <button
           aria-label="Кнопка закрытия попапа"
           type="button"
-          class="popup__close-button popup__close-button_type_image"
+          class="popup__close-button"
         ></button>
         <img src="#" alt="#" class="popup__image">
         <h2 class="popup__caption"></h2>
