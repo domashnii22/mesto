@@ -1,8 +1,9 @@
 .popup__form {
     display: flex;
     flex-direction: column;
+    justify-content: space-between;
     margin-top: 50px;
-    gap: 30px;
+    height: 200px;
   }
   
   @media (max-width: 560px) {

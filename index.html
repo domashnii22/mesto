@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="./pages/index.css" />
     <title>Сервис Mesto</title>
+    <script src="./scripts/validate.js" defer></script>
     <script src="./scripts/cards.js" defer></script>
     <script src="./scripts/index.js" defer></script>
   </head>
@@ -59,22 +60,28 @@
           class="popup__close-button"
         ></button>
         <h2 class="popup__title">Редактировать профиль</h2>
-        <form name="popupForm" class="popup__form">
-          <input
-            name="inputName"
+        <form novalidate name="popupForm" class="popup__form">
+          <input required
+            name="name"
             placeholder="Имя"
             type="text"
             class="popup__input popup__input_text_name"
+            minlength="2"
+            maxlength="40"
           />
-          <input
-            name="inputOccupation"
+          <span class="popup__input-error popup__input-error_type_name"></span>
+          <input required
+            name="occupation"
             placeholder="Должность"
             type="text"
             class="popup__input popup__input_text_occupation"
+            minlength="2"
+            maxlength="200"
           />
+          <span class="popup__input-error popup__input-error_type_occupation"></span>
           <button
             type="submit"
-            class="popup__save-button popup__save-button_type_edit"
+            class="popup__save-button popup__save-button_type_edit popup__save-button_valid"
           >
             Сохранить
           </button>
@@ -89,22 +96,26 @@
           class="popup__close-button"
         ></button>
         <h2 class="popup__title">Новое место</h2>
-        <form name="popupForm" class="popup__form">
-          <input
-            name="inputTitle"
+        <form novalidate name="popupForm" class="popup__form">
+          <input required
+            name="title"
             placeholder="Название"
             type="text"
             class="popup__input popup__input_text_title"
+            minlength="2"
+            maxlength="30"
           />
-          <input
-            name="inputLink"
+          <span class="popup__input-error popup__input-error_type_title"></span>
+          <input required
+            name="link"
             placeholder="Ссылка на картинку"
-            type="text"
+            type="url"
             class="popup__input popup__input_text_link"
           />
+          <span class="popup__input-error popup__input-error_type_link"></span>
           <button
             type="submit"
-            class="popup__save-button popup__save-button_type_add"
+            class="popup__save-button popup__save-button_type_add popup__save-button_valid"
           >
             Создать
           </button>

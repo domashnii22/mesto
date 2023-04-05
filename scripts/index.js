@@ -26,10 +26,14 @@ const list = document.querySelector(".places__items"); // переменная �
 
 function openPopup(popup) {
   popup.classList.add("popup_opened");
+  document.addEventListener("keydown", closePopupByEsc);
+  popup.addEventListener("click", closePopupByOverlay);
 }
 
 function closePopup(popup) {
   popup.classList.remove("popup_opened");
+  document.removeEventListener("keydown", closePopupByEsc);
+  popup.removeEventListener("click", closePopupByOverlay);
 }
 
 function handleFormSubmitEdit(evt) {
@@ -37,6 +41,20 @@ function handleFormSubmitEdit(evt) {
   profileName.textContent = nameInput.value;
   profileOccupation.textContent = jobInput.value;
   closePopup(editPopup);
+}
+
+function closePopupByEsc(evt) {
+  if (evt.key === "Escape") {
+    const openedPopup = document.querySelector(".popup_opened");
+    closePopup(openedPopup);
+  }
+}
+
+function closePopupByOverlay(evt) {
+  if (evt.target === evt.currentTarget) {
+    const openedPopup = document.querySelector(".popup_opened");
+    closePopup(openedPopup);
+  }
 }
 
 function addCard(card) {
