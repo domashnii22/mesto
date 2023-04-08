@@ -103,8 +103,16 @@ function handleFormSubmitAdd(evt) {
   const card = { name, link };
   addCard(card);
   closePopup(addPopup);
-  formElement.reset();
+  formElement.reset(); 
+  disableSubmitButton(addPopup);
 }
+
+function disableSubmitButton(addPopup) {
+  const submitButton = addPopup.querySelector(".popup__save-button");
+  submitButton.classList.add("popup__save-button_valid");
+  submitButton.disabled = true;
+}
+
 
 editProfileButton.addEventListener("click", function () {
  nameInput.value = profileName.textContent;

@@ -1,8 +1,8 @@
-# Проектная работа №6 "Место"
+# Проектная работа "Место"
 
 ---
 
-1. Ссылка ссылка проекта на GitHub: [https://domashnii22.github.io/mesto/]
+1. Ссылка ссылка проекта на GitHub Pages: [https://domashnii22.github.io/mesto/]
 
 2. Данный проект является практическим закреплением пройденных материалов по курсу "Базовый JavaScript и работа с браузером" на примере реализации интерактивной веб-страницы по макету: [Figma](https://www.figma.com/file/2cn9N9jSkmxD84oJik7xL7/JavaScript.-Sprint-4?node-id=0%3A1).
 
