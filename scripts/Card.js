@@ -20,6 +20,7 @@ export default class Card {
 
   _handleDeleteElement = () => {
     this._cloneElement.remove();
+    this._cloneElement = null;
   };
 
   _handleOpenImageElement = () => {
