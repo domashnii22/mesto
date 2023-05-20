@@ -2,7 +2,7 @@ export default class Card {
   constructor(card, selectorTemplate, openImagePopup) {
     this._card = card;
     this._link = card.link;
-    this._name = card.name;
+    this._name = card.title;
     this._selectorTemplate = selectorTemplate;
     this._openImagePopup = openImagePopup;
   }
@@ -42,7 +42,7 @@ export default class Card {
     );
     this._likeElement = this._cloneElement.querySelector(".place__heart");
     this._imageElement.src = this._link;
-    this._imageElement.alt = this._name;
+    this._imageElement.alt = `Изображение ${this._name}`;;
     this._captionElement.textContent = this._name;
     this._setEventListener();
     return this._cloneElement;
