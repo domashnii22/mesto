@@ -1,10 +1,3 @@
-// import Arhyz from "https://pictures.s3.yandex.net/frontend-developer/cards-compressed/arkhyz.jpg";
-// import Chelyaba from "https://pictures.s3.yandex.net/frontend-developer/cards-compressed/chelyabinsk-oblast.jpg";
-// import Ivanovo from ""https://pictures.s3.yandex.net/frontend-developer/cards-compressed/ivanovo.jpg";
-// import Kamchatka from "https://pictures.s3.yandex.net/frontend-developer/cards-compressed/chelyabinsk-oblast.jpg";
-// import Holmogor from "https://pictures.s3.yandex.net/frontend-developer/cards-compressed/arkhyz.jpg";
-// import Baikal from "https://pictures.s3.yandex.net/frontend-developer/cards-compressed/chelyabinsk-oblast.jpg";
-
 const initialCards = [
   {
     title: "Архыз",
@@ -34,8 +27,10 @@ const initialCards = [
 
 const popupProfile = document.querySelector(".popup_type_edit"); // переменная попапа №1
 const popupPlace = document.querySelector(".popup_type_add"); // переменная попапа №2
+const popupAvatar = document.querySelector(".popup_type_avatar"); // переменная попапа №3
 const formElementPopupProfile = popupProfile.querySelector(".popup__form"); // переменная формы #1
 const formElementPopupPlace = popupPlace.querySelector(".popup__form"); // переменная формы #2
+const formElementPopupAvatar = popupAvatar.querySelector(".popup__form"); // переменная формы #3
 const buttonOpenPopupProfile = document.querySelector(".profile__edit"); // кнопка открытия №1
 const buttonOpenPopupPlace = document.querySelector(".profile__add"); // кнопка открытия №2
 const selectorTemplate = "#cardTemplate";
@@ -43,10 +38,13 @@ const popupProfileSelector = ".popup_type_edit";
 const popupPlaceSelector = ".popup_type_add";
 const popupImageSelector = ".popup_type_image";
 const listSelector = ".places__items";
+const popupAvatarSelector = '.popup_type_avatar';
+const popupDeleteSelector = '.popup_type_delete';
 
 const configUserInfo = {
   profileNameSelector: ".profile__name",
   profileOccupationSelector: ".profile__occupation",
+  profileAvatarSelector: ".profile__avatar"
 };
 
 const validationConfig = {
@@ -59,9 +57,9 @@ const validationConfig = {
 };
 
 export {
-  initialCards,
   formElementPopupProfile,
   formElementPopupPlace,
+  formElementPopupAvatar,
   buttonOpenPopupProfile,
   buttonOpenPopupPlace,
   selectorTemplate,
@@ -69,6 +67,8 @@ export {
   popupPlaceSelector,
   popupImageSelector,
   listSelector,
+  popupAvatarSelector,
+  popupDeleteSelector,
   configUserInfo,
   validationConfig
 }
